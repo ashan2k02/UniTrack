@@ -1,0 +1,26 @@
+# PDF files
+*.pdf
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+
+# Node modules (if using npm/Node)
+node_modules/
+package-lock.json
+
+# IDE settings
+.vscode/
+.idea/
+*.code-workspace
+
+# Environment variables
+.env
+.env.local
+
+# Temp files
+*.tmp
+*~
