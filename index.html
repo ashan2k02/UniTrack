@@ -1,45 +1,396 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UniTrack</title>
-    <link rel="icon" href="images/logo.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/navBar.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="UniTrack – Smart Academic Dashboard. Track tasks, timetables and GPA all in one place." />
+    <title>UniTrack – Smart Academic Dashboard</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg uni-navbar sticky-top">
+
+
+
+    <!--NAVBAR-->
+    <nav class="navbar navbar-expand-lg fixed-top glass-nav" id="mainNavbar">
         <div class="container">
-            <a class="navbar-website website-mark" href="#">
-                <img src="images/logo.png" alt="UniTrack logo" class="website-logo">
+            <!--Logo -->
+            <a class="navbar-brand brand-logo" href="index.html">
+                <span class="brand-icon"><i class="bi bi-mortarboard-fill"></i></span>
+                Uni<span class="brand-accent">Track</span>
             </a>
 
-            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#uniNavbar" aria-controls="uniNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <!-- Mobile  -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="toggler-icon"><i class="bi bi-list"></i></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="uniNavbar">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-links-wrap">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            <!-- Nav Links -->
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                            <i class="bi bi-house-fill me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="bi bi-grid-fill me-1"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <i class="bi bi-person-lines-fill me-1"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">
+                            <i class="bi bi-box-arrow-in-right me-1"></i>Login
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-primary-grad" href="register.html">
+                            Get Started <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </li>
                 </ul>
-                <div class="d-flex align-items-center gap-2 nav-actions">
-                    <a href="#" class="btn btn-warning btn-sm start-btn">Open Dashboard</a>
-                </div>
             </div>
         </div>
     </nav>
 
-    <main class="container py-5">
-        <h1 class="page-title">Phase 2 - Navbar Design</h1>
-        <p class="page-subtitle">Navigation is ready. Next we can build the hero section and the rest of the landing page from your wireframe.</p>
-    </main>
+
+    <!--Hero -->
+    <section class="hero-section" id="hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+
+        <div class="container hero-content">
+            <div class="row align-items-center min-vh-100">
+                <!-- Left  -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="hero-badge mb-3">
+                        <i class="bi bi-stars me-2"></i>Academic Excellence Platform
+                    </div>
+                    <h1 class="hero-title">
+                        Track Your<br />
+                        <span class="gradient-text">Academic Success</span><br />
+                        Smartly
+                    </h1>
+                    <p class="hero-subtitle mt-4 mb-5">
+                        One elegant dashboard to manage your tasks, visualise your timetable,
+                        and calculate your GPA — built for students who aim higher.
+                    </p>
+                    <div class="hero-cta d-flex flex-wrap gap-3">
+                        <a href="dashboard.html" class="btn btn-primary-grad btn-lg">
+                            <i class="bi bi-rocket-takeoff me-2"></i>Launch Dashboard
+                        </a>
+                        <a href="#features" class="btn btn-outline-light btn-lg smooth-scroll">
+                            Explore Features <i class="bi bi-arrow-down ms-2"></i>
+                        </a>
+                    </div>
+
+                    <div class="hero-stats d-flex gap-4 mt-5 flex-wrap">
+                        <div class="stat-chip">
+                            <span class="stat-num">3</span>
+                            <span class="stat-label">Core Modules</span>
+                        </div>
+                        <div class="stat-chip">
+                            <span class="stat-num">∞</span>
+                            <span class="stat-label">Tasks & Subjects</span>
+                        </div>
+                        <div class="stat-chip">
+                            <span class="stat-num">4.0</span>
+                            <span class="stat-label">Target GPA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right  -->
+                <div class="col-lg-6 mt-5 mt-lg-0 d-flex justify-content-center">
+                    <div class="hero-visual">
+                        <div class="floating-card card-task">
+                            <i class="bi bi-check2-circle text-success me-2"></i>
+                            Assignment Submitted <span class="badge bg-success ms-2">Done</span>
+                        </div>
+                        <div class="floating-card card-gpa">
+                            <i class="bi bi-graph-up-arrow text-warning me-2"></i>
+                            GPA: <strong>3.82</strong>
+                            <div class="gpa-bar mt-1">
+                                <div class="gpa-fill" style="width:95%"></div>
+                            </div>
+                        </div>
+                        <div class="floating-card card-time">
+                            <i class="bi bi-clock-fill text-primary me-2"></i>
+                            Next: <strong>CS 301</strong> at 10:00 AM
+                        </div>
+                        <!-- Dashboard preview -->
+                        <div class="dashboard-mockup glass-card">
+                            <div class="mockup-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="mockup-title">Dashboard</span>
+                            </div>
+                            <div class="mockup-body">
+                                <div class="mockup-row">
+                                    <div class="mockup-bar" style="width:80%"></div>
+                                </div>
+                                <div class="mockup-row">
+                                    <div class="mockup-bar b2" style="width:55%"></div>
+                                </div>
+                                <div class="mockup-row">
+                                    <div class="mockup-bar b3" style="width:70%"></div>
+                                </div>
+                                <div class="mockup-row">
+                                    <div class="mockup-bar" style="width:40%"></div>
+                                </div>
+                                <div class="mockup-row">
+                                    <div class="mockup-bar b2" style="width:90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Features -->
+    <section class="features-section py-6" id="features">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <div class="section-badge mb-2">Why UniTrack?</div>
+                <h2 class="section-title">Everything You Need to <span class="gradient-text">Succeed</span></h2>
+                <p class="section-sub">Three powerful modules designed around your academic life.</p>
+            </div>
+
+            <!-- Cards -->
+            <div class="row g-4 justify-content-center">
+
+                <!-- Task Manager -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card glass-card h-100" id="featureTask">
+                        <div class="feature-icon-wrap icon-purple">
+                            <i class="bi bi-list-task"></i>
+                        </div>
+                        <h3 class="feature-title mt-4">Smart Task Manager</h3>
+                        <p class="feature-desc">
+                            Add tasks with deadlines and priority levels. Get visual warnings
+                            before due dates and track completion with a live progress bar.
+                        </p>
+                        <ul class="feature-list mt-3">
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Priority tagging</li>
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Deadline alerts</li>
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Progress tracking</li>
+                        </ul>
+                        <a href="dashboard.html#tasks" class="feature-link mt-auto">
+                            Open Tasks <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Timetable -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card glass-card h-100" id="featureTimetable">
+                        <div class="feature-icon-wrap icon-cyan">
+                            <i class="bi bi-calendar-week"></i>
+                        </div>
+                        <h3 class="feature-title mt-4">Lecture Timetable</h3>
+                        <p class="feature-desc">
+                            Build your weekly schedule interactively. The current day is
+                            highlighted automatically so you always know what's next.
+                        </p>
+                        <ul class="feature-list mt-3">
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Mon – Fri grid</li>
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Auto day highlight</li>
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Dynamic updates</li>
+                        </ul>
+                        <a href="dashboard.html#timetable" class="feature-link mt-auto">
+                            Open Timetable <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!--GPA Calculator -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card glass-card h-100" id="featureGPA">
+                        <div class="feature-icon-wrap icon-orange">
+                            <i class="bi bi-calculator"></i>
+                        </div>
+                        <h3 class="feature-title mt-4">GPA Auto Calculator</h3>
+                        <p class="feature-desc">
+                            Enter subjects, credit hours and grades. Your GPA is calculated
+                            instantly using weighted averages and displayed with a colour indicator.
+                        </p>
+                        <ul class="feature-list mt-3">
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Real-time GPA</li>
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Colour-coded result</li>
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Full grade scale</li>
+                        </ul>
+                        <a href="dashboard.html#gpa" class="feature-link mt-auto">
+                            Calculate GPA <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="carousel-section py-6" id="showcase">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-badge mb-2">At A Glance</div>
+                <h2 class="section-title">Your Academic Life, <span class="gradient-text">Organised</span></h2>
+            </div>
+
+            <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner rounded-4 overflow-hidden">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="carousel-slide slide-tasks d-flex align-items-center justify-content-center">
+                            <div class="carousel-content text-center text-white p-5">
+                                <div class="carousel-icon mb-4"><i class="bi bi-list-check"></i></div>
+                                <h3 class="display-6 fw-bold">Task Management</h3>
+                                <p class="lead opacity-75 mt-3">Create, prioritise and track every task before it's due.
+                                    Stay ahead, never behind.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="carousel-slide slide-timetable d-flex align-items-center justify-content-center">
+                            <div class="carousel-content text-center text-white p-5">
+                                <div class="carousel-icon mb-4"><i class="bi bi-calendar3"></i></div>
+                                <h3 class="display-6 fw-bold">Lecture Timetable</h3>
+                                <p class="lead opacity-75 mt-3">Your entire week on one screen. Add lectures on the fly
+                                    and never miss a class.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="carousel-slide slide-gpa d-flex align-items-center justify-content-center">
+                            <div class="carousel-content text-center text-white p-5">
+                                <div class="carousel-icon mb-4"><i class="bi bi-award"></i></div>
+                                <h3 class="display-6 fw-bold">GPA Calculator</h3>
+                                <p class="lead opacity-75 mt-3">See exactly where you stand academically. Real-time
+                                    weighted GPA at your fingertips.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Call-->
+    <section class="cta-section py-6">
+        <div class="container">
+            <div class="cta-card glass-card text-center p-5">
+                <h2 class="fw-bold fs-1 mb-3">Ready to take control of your semester?</h2>
+                <p class="cta-sub mb-4">Join thousands of students who track smarter, not harder.</p>
+                <a href="dashboard.html" class="btn btn-primary-grad btn-lg me-3">
+                    <i class="bi bi-rocket-takeoff me-2"></i>Open Dashboard
+                </a>
+                <a href="about.html" class="btn btn-outline-custom btn-lg">
+                    <i class="bi bi-person-lines-fill me-2"></i>About Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Footer-->
+    <footer class="site-footer py-5">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- Brand -->
+                <div class="col-lg-4">
+                    <a class="footer-brand" href="index.html">
+                        <i class="bi bi-mortarboard-fill me-2"></i>Uni<span class="brand-accent">Track</span>
+                    </a>
+                    <p class="footer-desc mt-3">
+                        A modern academic companion built for university students who want to
+                        track tasks, timetables and GPA all in one place.
+                    </p>
+                </div>
+                <!-- Quick Links -->
+                <div class="col-sm-6 col-lg-2 offset-lg-2">
+                    <h6 class="footer-heading">Pages</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-chevron-right me-1"></i>Home</a></li>
+                        <li><a href="dashboard.html"><i class="bi bi-chevron-right me-1"></i>Dashboard</a></li>
+                        <li><a href="about.html"><i class="bi bi-chevron-right me-1"></i>About</a></li>
+                    </ul>
+                </div>
+                <!-- Modules -->
+                <div class="col-sm-6 col-lg-2">
+                    <h6 class="footer-heading">Modules</h6>
+                    <ul class="footer-links">
+                        <li><a href="dashboard.html#tasks"><i class="bi bi-chevron-right me-1"></i>Task Manager</a></li>
+                        <li><a href="dashboard.html#timetable"><i class="bi bi-chevron-right me-1"></i>Timetable</a>
+                        </li>
+                        <li><a href="dashboard.html#gpa"><i class="bi bi-chevron-right me-1"></i>GPA Calc</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div class="col-lg-2">
+                    <h6 class="footer-heading">Developer</h6>
+                    <ul class="footer-links">
+                        <li><a href="about.html"><i class="bi bi-person me-1"></i>About</a></li>
+                        <li><a href="#"><i class="bi bi-github me-1"></i>GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-divider my-4" />
+            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                <p class="footer-copy mb-0">&copy; 2025 UniTrack. All rights reserved.</p>
+                <p class="footer-copy mb-0">Built by <span><a href="https://github.com/ashan2k02" target="_blank">Ashan Eranga</a></span></p>
+            </div>
+        </div>
+    </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
+
 </html>

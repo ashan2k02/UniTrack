@@ -1,6 +1,9 @@
 # PDF files
 *.pdf
 
+#txt files
+*.txt
+
 # macOS
 .DS_Store
 .AppleDouble
