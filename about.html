@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="About UniTrack – A smart academic dashboard. Learn what it does, how to use every module, and meet the developer." />
+    <title>About – UniTrack</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/about.css" />
+
+</head>
+
+<body>
+
+
+    <!-- =Navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top glass-nav" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand brand-logo" href="index.html" aria-label="UniTrack home">
+                <span class="brand-icon"><img src="images/logo.png" alt="UniTrack logo"></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="toggler-icon"><i class="bi bi-list"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i
+                                class="bi bi-house-fill me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html"><i
+                                class="bi bi-grid-fill me-1"></i>Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html"><i
+                                class="bi bi-person-lines-fill me-1"></i>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i
+                                class="bi bi-box-arrow-in-right me-1"></i>Login</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-primary-grad" href="register.html">Get Started <i
+                                class="bi bi-arrow-right ms-1"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="abt-hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+
+        <div class="container position-relative" style="z-index:2;">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+
+                    <div class="abt-hero-badge mb-4">
+                        <i class="bi bi-info-circle-fill"></i> About UniTrack
+                    </div>
+
+                    <h1 class="abt-hero-title mb-4">
+                        One Dashboard.<br />
+                        <span class="gradient-text">Every Academic Need.</span>
+                    </h1>
+
+                    <p class="abt-hero-sub mx-auto mb-5">
+                        UniTrack is a lightweight, 100&nbsp;% frontend academic dashboard built
+                        for university students. No sign-in required, all data saved right in
+                        your browser.
+                    </p>
+
+                    <div class="d-flex justify-content-center gap-4 flex-wrap">
+                        <div class="abt-stat" style="min-width:110px;">
+                            <div class="abt-stat-num">3</div>
+                            <div class="abt-stat-label">Modules</div>
+                        </div>
+                        <div class="abt-stat" style="min-width:110px;">
+                            <div class="abt-stat-num">5+</div>
+                            <div class="abt-stat-label">Pages</div>
+                        </div>
+                        <div class="abt-stat" style="min-width:110px;">
+                            <div class="abt-stat-num">0</div>
+                            <div class="abt-stat-label">Backend</div>
+                        </div>
+                        <div class="abt-stat" style="min-width:110px;">
+                            <div class="abt-stat-num">100%</div>
+                            <div class="abt-stat-label">Frontend</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- What is unitrack -->
+    <section class="abt-section">
+        <div class="container">
+
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-5 reveal">
+                    <div class="section-badge mb-3">What is it?</div>
+                    <h2 class="section-title text-start mb-4">
+                        A smart academic<br /><span class="gradient-text">companion app</span>
+                    </h2>
+                    <p style="color:var(--clr-muted); line-height:1.85; font-size:.97rem;">
+                        <strong style="color:var(--clr-text);">UniTrack – Smart Academic Dashboard</strong> brings
+                        together three essential tools into one clean, dark-themed web app
+                        designed for students who want to stay on top of their academic life
+                        without juggling multiple apps or spreadsheets.
+                    </p>
+                    <p style="color:var(--clr-muted); line-height:1.85; font-size:.97rem; margin-top:1rem;">
+                        Everything runs in your browser using
+                        <code style="color:var(--clr-cyan);">localStorage</code>, so your
+                        tasks, lectures, and GPA data are always there when you come back —
+                        <em>no account, no server, no fuss.</em>
+                    </p>
+
+                    <a href="dashboard.html" class="btn btn-primary-grad mt-4">
+                        <i class="bi bi-rocket-takeoff me-2"></i>Open Dashboard
+                    </a>
+                </div>
+
+                <div class="col-lg-7 reveal">
+                    <div class="what-strip flex-column flex-sm-row">
+
+                        <div class="what-strip-item">
+                            <div class="what-strip-icon icon-purple">
+                                <i class="bi bi-list-task"></i>
+                            </div>
+                            <div class="what-strip-title">Task Manager</div>
+                            <div class="what-strip-desc">Create tasks with deadlines and priority. Get colour warnings
+                                as due dates
+                                approach.</div>
+                        </div>
+
+                        <div class="what-strip-item">
+                            <div class="what-strip-icon icon-cyan">
+                                <i class="bi bi-calendar-week"></i>
+                            </div>
+                            <div class="what-strip-title">Timetable</div>
+                            <div class="what-strip-desc">Build a Mon–Fri weekly grid. Today is highlighted automatically
+                                every time
+                                you open it.</div>
+                        </div>
+
+                        <div class="what-strip-item">
+                            <div class="what-strip-icon icon-orange">
+                                <i class="bi bi-calculator"></i>
+                            </div>
+                            <div class="what-strip-title">GPA Calculator</div>
+                            <div class="what-strip-desc">Enter subjects, credits and grades — your weighted GPA is
+                                calculated live.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- How to use -->
+    <section class="abt-section abt-section-alt" id="how-to">
+        <div class="container">
+
+            <div class="text-center mb-5 reveal">
+                <div class="section-badge mb-3">How to use</div>
+                <h2 class="section-title">
+                    Simple steps to <span class="gradient-text">get started</span>
+                </h2>
+                <p class="section-sub mt-2">Every module is self-explanatory — here's a quick overview.</p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 reveal">
+                    <div class="howto-card glass-card h-100 howto-card--purple">
+                        <span class="howto-num">01</span>
+                        <div class="howto-icon icon-purple">
+                            <i class="bi bi-list-task"></i>
+                        </div>
+                        <div class="howto-title">Task Manager</div>
+                        <p class="howto-desc">Keep track of every assignment, project, and deadline in one place. Never
+                            miss a
+                            submission again.</p>
+
+                        <ul class="step-list">
+                            <li>
+                                <span class="step-num step-num--purple">1</span>
+                                Go to the <strong style="color:var(--clr-text)">Dashboard</strong> and scroll to the
+                                <em>Task</em> section.
+                            </li>
+                            <li>
+                                <span class="step-num step-num--purple">2</span>
+                                Click <strong style="color:var(--clr-text)">"+ Add Task"</strong>, enter the task name,
+                                pick a deadline date and choose a priority level (High / Medium / Low).
+                            </li>
+                            <li>
+                                <span class="step-num step-num--purple">3</span>
+                                Hit <strong style="color:var(--clr-text)">Add</strong>. Your task appears instantly in
+                                the list — colour-coded by priority.
+                            </li>
+                            <li>
+                                <span class="step-num step-num--purple">4</span>
+                                <strong style="color:var(--clr-text)">Tick the checkbox</strong> to mark it done, or
+                                click the trash icon to delete it.
+                            </li>
+                            <li>
+                                <span class="step-num step-num--purple">5</span>
+                                Use the <strong style="color:var(--clr-text)">filter tabs</strong> (All / Pending /
+                                Done) to quickly switch views.
+                            </li>
+                        </ul>
+
+                        <a href="dashboard.html#tasks" class="howto-link howto-link--purple">
+                            Open Tasks <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 reveal">
+                    <div class="howto-card glass-card h-100 howto-card--cyan">
+                        <span class="howto-num">02</span>
+                        <div class="howto-icon icon-cyan">
+                            <i class="bi bi-calendar-week"></i>
+                        </div>
+                        <div class="howto-title">Lecture Timetable</div>
+                        <p class="howto-desc">Build your full weekly schedule in minutes. The app highlights today's
+                            column
+                            automatically every time you visit.</p>
+
+                        <ul class="step-list">
+                            <li>
+                                <span class="step-num step-num--cyan">1</span>
+                                Scroll to the <strong style="color:var(--clr-text)">Timetable</strong> section on the
+                                Dashboard.
+                            </li>
+                            <li>
+                                <span class="step-num step-num--cyan">2</span>
+                                Click <strong style="color:var(--clr-text)">"+ Add Lecture"</strong> to open the form.
+                            </li>
+                            <li>
+                                <span class="step-num step-num--cyan">3</span>
+                                Fill in the <strong style="color:var(--clr-text)">subject name</strong>, select the
+                                <strong style="color:var(--clr-text)">day</strong> (Mon – Fri), enter the
+                                <strong style="color:var(--clr-text)">start &amp; end time</strong>, and optionally add
+                                a room/venue.
+                            </li>
+                            <li>
+                                <span class="step-num step-num--cyan">4</span>
+                                Click <strong style="color:var(--clr-text)">Save</strong> — the lecture slots in to the
+                                correct day column, sorted by time.
+                            </li>
+                            <li>
+                                <span class="step-num step-num--cyan">5</span>
+                                Delete any lecture with the <strong style="color:var(--clr-text)">×</strong> button on
+                                that card.
+                            </li>
+                        </ul>
+
+                        <a href="dashboard.html#timetable" class="howto-link howto-link--cyan">
+                            Open Timetable <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 reveal">
+                    <div class="howto-card glass-card h-100 howto-card--orange">
+                        <span class="howto-num">03</span>
+                        <div class="howto-icon icon-orange">
+                            <i class="bi bi-calculator"></i>
+                        </div>
+                        <div class="howto-title">GPA Calculator</div>
+                        <p class="howto-desc">Instantly see your weighted GPA as you add subjects. A colour-coded result
+                            card tells
+                            you exactly where you stand.</p>
+
+                        <ul class="step-list">
+                            <li>
+                                <span class="step-num step-num--orange">1</span>
+                                Go to the <strong style="color:var(--clr-text)">GPA</strong> section on the Dashboard.
+                            </li>
+                            <li>
+                                <span class="step-num step-num--orange">2</span>
+                                Click <strong style="color:var(--clr-text)">"+ Add Subject"</strong>.
+                            </li>
+                            <li>
+                                <span class="step-num step-num--orange">3</span>
+                                Enter the <strong style="color:var(--clr-text)">subject name</strong>, the
+                                <strong style="color:var(--clr-text)">credit hours</strong>, and pick the
+                                <strong style="color:var(--clr-text)">grade</strong> from the dropdown (A, B+, B, C+, C,
+                                D, F).
+                            </li>
+                            <li>
+                                <span class="step-num step-num--orange">4</span>
+                                Hit <strong style="color:var(--clr-text)">Add</strong> — your GPA recalculates
+                                instantly using a weighted average.
+                            </li>
+                            <li>
+                                <span class="step-num step-num--orange">5</span>
+                                The result card turns <span style="color:var(--clr-green)">green (≥ 3.5)</span>,
+                                <span style="color:var(--clr-orange)">orange (≥ 2.0)</span>, or
+                                <span style="color:var(--clr-red)">red (&lt; 2.0)</span> based on your score.
+                            </li>
+                        </ul>
+
+                        <a href="dashboard.html#gpa" class="howto-link howto-link--orange">
+                            Open GPA Calc <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Developer -->
+    <section class="abt-section abt-section-alt" id="developer">
+        <div class="container">
+
+            <div class="text-center mb-5 reveal">
+                <div class="section-badge mb-3">The Developer</div>
+                <h2 class="section-title">Meet <span class="gradient-text">Ashan Eranga</span></h2>
+                <p class="section-sub mt-2">The person who designed, coded, and shipped UniTrack.</p>
+            </div>
+
+            <div class="row justify-content-center g-4">
+
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="dev-wrap">
+                        <div class="dev-banner">
+                            <div class="dev-banner-dots"></div>
+                            <div class="dev-avatar-ring">
+                                <div class="dev-avatar-inner"><i class="bi bi-person-fill"></i></div>
+                            </div>
+                        </div>
+                        <div class="dev-body">
+                            <div class="dev-name">Ashan Eranga</div>
+                            <div class="dev-role-badge">Undergraduate · Web Developer</div>
+
+                            <p class="dev-bio">
+                                Hi — I'm Ashan, an undergraduate student passionate about building
+                                clean, modern web experiences. I created UniTrack as a university
+                                web design project to demonstrate real-world frontend skills using
+                                only HTML, CSS, Bootstrap, and Vanilla JavaScript — no frameworks,
+                                no shortcuts.
+                            </p>
+
+                            <div class="dev-skills">
+                                <span class="skill-tag">HTML5</span>
+                                <span class="skill-tag">CSS3</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">Bootstrap 5</span>
+                                <span class="skill-tag">Responsive Design</span>
+                                <span class="skill-tag">UI / UX</span>
+                                <span class="skill-tag">DOM Manipulation</span>
+                                <span class="skill-tag">Git</span>
+                            </div>
+
+                            <div class="dev-links">
+                                <a href="https://ashaneranga.me" target="_blank" rel="noopener noreferrer" class="dev-btn dev-btn-web"><i class="bi bi-globe2"></i> Portfolio</a>
+                                <button type="button" class="dev-btn dev-btn-gh"><i class="bi bi-github"></i> GitHub</button>
+                                <button type="button" class="dev-btn dev-btn-li"><i class="bi bi-linkedin"></i> LinkedIn</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-6 reveal d-flex flex-column gap-4">
+
+                    <div class="glass-card p-4">
+                        <h6 class="card-section-title mb-3"><i class="bi bi-lightbulb me-2"
+                                style="color:var(--clr-orange);"></i>Why I built this</h6>
+                        <p style="font-size:.9rem; color:var(--clr-muted); line-height:1.8; margin:0;">
+                            As a university student myself I noticed most academic apps are either
+                            too bloated, require logins, or cost money. I wanted to prove that a
+                            single lightweight HTML file could solve real student problems. UniTrack
+                            is my answer to that — fast, offline-friendly, and completely free.
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-4">
+                        <h6 class="card-section-title mb-3"><i class="bi bi-globe2 me-2"
+                                style="color:var(--purple-light);"></i>Visit my portfolio</h6>
+                        <p style="font-size:.9rem; color:var(--clr-muted); line-height:1.8; margin:0 0 1rem 0;">
+                            Explore more of my projects, design work, and frontend development journey.
+                        </p>
+                        <a href="https://ashaneranga.me" target="_blank" rel="noopener noreferrer" class="btn btn-primary-grad">
+                            <i class="bi bi-box-arrow-up-right me-2"></i>Open Portfolio
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="abt-section">
+        <div class="container">
+            <div class="abt-cta reveal">
+                <div class="section-badge mb-3">Ready to track smarter?</div>
+                <h2 class="fw-bold fs-1 mb-3">
+                    Start using <span class="gradient-text">UniTrack</span> right now
+                </h2>
+                <p style="color:var(--clr-muted); font-size:1.05rem; max-width:480px; margin:0 auto 2rem;">
+                    No sign-up, no download. Just open the dashboard and start adding your
+                    tasks, lectures and subjects.
+                </p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="dashboard.html" class="btn btn-primary-grad btn-lg">
+                        <i class="bi bi-rocket-takeoff me-2"></i>Open Dashboard
+                    </a>
+                    <a href="register.html" class="btn btn-outline-custom btn-lg">
+                        <i class="bi bi-person-plus me-2"></i>Create Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="site-footer py-5">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- Brand -->
+                <div class="col-lg-4">
+                    <a class="footer-brand" href="index.html">
+                        <i class="bi bi-mortarboard-fill me-2"></i>Uni<span class="brand-accent">Track</span>
+                    </a>
+                    <p class="footer-desc mt-3">
+                        A modern academic companion built for university students who want to
+                        track tasks, timetables and GPA all in one place.
+                    </p>
+                </div>
+                <!-- Quick Links -->
+                <div class="col-sm-6 col-lg-2 offset-lg-2">
+                    <h6 class="footer-heading">Pages</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-chevron-right me-1"></i>Home</a></li>
+                        <li><a href="dashboard.html"><i class="bi bi-chevron-right me-1"></i>Dashboard</a></li>
+                        <li><a href="about.html"><i class="bi bi-chevron-right me-1"></i>About</a></li>
+                    </ul>
+                </div>
+                <!-- Modules -->
+                <div class="col-sm-6 col-lg-2">
+                    <h6 class="footer-heading">Modules</h6>
+                    <ul class="footer-links">
+                        <li><a href="dashboard.html#tasks"><i class="bi bi-chevron-right me-1"></i>Task Manager</a></li>
+                        <li><a href="dashboard.html#timetable"><i class="bi bi-chevron-right me-1"></i>Timetable</a>
+                        </li>
+                        <li><a href="dashboard.html#gpa"><i class="bi bi-chevron-right me-1"></i>GPA Calc</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div class="col-lg-2">
+                    <h6 class="footer-heading">Developer</h6>
+                    <ul class="footer-links">
+                        <li><a href="about.html"><i class="bi bi-person me-1"></i>About</a></li>
+                        <li><a href="#"><i class="bi bi-github me-1"></i>GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-divider my-4" />
+            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                <p class="footer-copy mb-0">&copy; 2025 UniTrack. All rights reserved.</p>
+                <p class="footer-copy mb-0">Built by <span style="text-decoration: underline;"><a href="https://ashaneranga.me" target="_blank">Ashan Eranga</a></span></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/about.js"></script>
+
+    <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
