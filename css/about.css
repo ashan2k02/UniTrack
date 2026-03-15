@@ -693,6 +693,12 @@ a {
   color: var(--purple-light);
   padding-left: 4px;
 }
+.footer-links .footer-link-static {
+  font-size: .88rem;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+}
 
 .footer-divider {
   border-color: var(--border);
@@ -1740,10 +1746,12 @@ a {
   align-items: center;
   gap: .45rem;
   padding: .5rem 1.2rem;
+  border: none;
   border-radius: 99px;
   font-size: .84rem;
   font-weight: 700;
   text-decoration: none;
+  cursor: default;
   transition: all 0.2s ease;
 }
 .dev-btn-gh {
@@ -1764,6 +1772,16 @@ a {
 .dev-btn-li:hover {
   background: rgba(10,102,194,.24);
   color: #93c5fd;
+  transform: translateY(-2px);
+}
+.dev-btn-web {
+  background: rgba(124,93,232,.16);
+  border: 1px solid rgba(124,93,232,.34);
+  color: #c4b5fd;
+}
+.dev-btn-web:hover {
+  background: rgba(124,93,232,.28);
+  color: #e9ddff;
   transform: translateY(-2px);
 }
 
