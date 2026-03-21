@@ -1,3 +1,17 @@
+<?php
+require_once __DIR__ . '/includes/functions.php';
+
+if (session_status() === PHP_SESSION_NONE) {
+	session_start();
+}
+
+if (is_logged_in()) {
+	header('Location: dashboard.php');
+	exit;
+}
+
+$flash = get_flash();
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -24,7 +38,7 @@
 		<div class="auth-image-panel" id="authImagePanelLogin">
 			<div class="auth-img-overlay"></div>
 			<div class="auth-img-content">
-				<a href="index.html" class="auth-brand">
+				<a href="index.php" class="auth-brand">
 					<span class="brand-icon"><img src="images/logo.png" alt="UniTrack logo"></span>
 					Uni<span class="brand-accent">Track</span>
 				</a>
@@ -59,12 +73,18 @@
 		</div>
 
 		<div class="auth-form-panel" id="authLoginFormPanel">
-			<a href="index.html" class="auth-brand auth-brand-mobile">
+			<a href="index.php" class="auth-brand auth-brand-mobile">
 				<span class="brand-icon"><img src="images/logo.png" alt="UniTrack logo"></span>
 				Uni<span class="brand-accent">Track</span>
 			</a>
 
 			<div class="auth-form-inner">
+				<?php if ($flash): ?>
+					<div class="alert alert-<?= htmlspecialchars($flash['type']) ?>" role="alert">
+						<?= htmlspecialchars($flash['message']) ?>
+					</div>
+				<?php endif; ?>
+
 				<div class="mb-4">
 					<div class="auth-form-icon mb-3">
 						<i class="bi bi-box-arrow-in-right"></i>
@@ -73,39 +93,16 @@
 					<p class="auth-form-sub">Welcome back. Please enter your details.</p>
 				</div>
 
-				<div class="auth-social-row mb-4">
-					<button class="auth-social-btn" id="btnGoogleLogin" type="button">
-						<svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M47.52 24.56c0-1.63-.15-3.2-.42-4.72H24v8.93h13.22c-.57 3.07-2.3 5.67-4.9 7.41v6.16h7.93c4.64-4.27 7.27-10.57 7.27-17.78z"
-								fill="#4285F4" />
-							<path
-								d="M24 48c6.65 0 12.22-2.2 16.29-5.96l-7.93-6.16c-2.2 1.48-5.02 2.35-8.36 2.35-6.43 0-11.87-4.34-13.81-10.18H2.05v6.36C6.1 42.56 14.47 48 24 48z"
-								fill="#34A853" />
-							<path
-								d="M10.19 28.05A14.37 14.37 0 0 1 9.6 24c0-1.41.24-2.78.59-4.05v-6.36H2.05A23.98 23.98 0 0 0 0 24c0 3.87.93 7.53 2.05 10.41l8.14-6.36z"
-								fill="#FBBC05" />
-							<path
-								d="M24 9.55c3.62 0 6.87 1.25 9.43 3.68l7.07-7.07C36.21 2.19 30.65 0 24 0 14.47 0 6.1 5.44 2.05 13.59l8.14 6.36C12.13 13.89 17.57 9.55 24 9.55z"
-								fill="#EA4335" />
-						</svg>
-						Continue with Google
-					</button>
-					<button class="auth-social-btn" id="btnGithubLogin" type="button">
-						<i class="bi bi-github"></i>
-						Continue with GitHub
-					</button>
-				</div>
 
-				<div class="auth-divider mb-4"><span>or sign in with email</span></div>
 
-				<form id="loginForm" novalidate>
+
+				<form id="loginForm" action="auth/login.php" method="POST" novalidate>
 					<div class="auth-field-group mb-3">
 						<label class="auth-label" for="loginEmail">Email</label>
 						<div class="auth-input-wrap">
 							<i class="bi bi-envelope-fill auth-input-icon"></i>
 							<input type="email" class="auth-input" id="loginEmail" placeholder="you@university.edu"
-								autocomplete="email" required />
+								autocomplete="email" name="email" required />
 						</div>
 						<div class="auth-error-msg" id="emailError"></div>
 					</div>
@@ -115,7 +112,7 @@
 						<div class="auth-input-wrap">
 							<i class="bi bi-shield-lock-fill auth-input-icon"></i>
 							<input type="password" class="auth-input" id="loginPassword" placeholder="Enter password"
-								autocomplete="current-password" required />
+								autocomplete="current-password" name="password" required />
 							<button type="button" class="auth-toggle-pw" id="toggleLoginPw"
 								aria-label="Toggle password visibility">
 								<i class="bi bi-eye-fill" id="toggleLoginPwIcon"></i>
@@ -135,7 +132,7 @@
 
 					<p class="auth-switch-text text-center mb-0">
 						Don't have an account?
-						<a href="register.html" class="auth-switch-link">Create one</a>
+						<a href="register.php" class="auth-switch-link">Create one</a>
 					</p>
 				</form>
 			</div>

@@ -1,3 +1,18 @@
+<?php
+require_once __DIR__ . '/includes/functions.php';
+
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_login('login.php');
+
+$username = $_SESSION['username'] ?? 'Student';
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -32,7 +47,7 @@
         </button>
 
         <nav class="sidebar-nav mt-4" id="sidebarNav">
-            <a href="index.html" class="sidebar-link">
+            <a href="index.php" class="sidebar-link">
                 <i class="bi bi-house-fill"></i>
                 <span class="link-text">Home</span>
             </a>
@@ -48,9 +63,17 @@
                 <i class="bi bi-calculator"></i>
                 <span class="link-text">GPA Calc</span>
             </a>
-            <a href="about.html" class="sidebar-link">
+            <a href="about.php" class="sidebar-link">
                 <i class="bi bi-person-lines-fill"></i>
                 <span class="link-text">About</span>
+            </a>
+            <a href="contact.php" class="sidebar-link">
+                <i class="bi bi-envelope-fill"></i>
+                <span class="link-text">Contact</span>
+            </a>
+            <a href="auth/logout.php" class="sidebar-link">
+                <i class="bi bi-box-arrow-left"></i>
+                <span class="link-text">Logout</span>
             </a>
         </nav>
 
@@ -58,7 +81,7 @@
             <div class="sidebar-profile">
                 <div class="profile-avatar"><i class="bi bi-person-circle"></i></div>
                 <div class="profile-info">
-                    <span class="profile-name link-text">Student</span>
+                    <span class="profile-name link-text"><?= htmlspecialchars((string) $username) ?></span>
                     <span class="profile-role link-text">Undergraduate</span>
                 </div>
             </div>
@@ -76,8 +99,11 @@
             <h1 class="topbar-title">Academic Dashboard</h1>
             <div class="topbar-right">
                 <span class="topbar-date" id="topbarDate"></span>
-                <a class="btn btn-sm btn-primary-grad ms-3" href="index.html">
+                <a class="btn btn-sm btn-primary-grad ms-3" href="index.php">
                     <i class="bi bi-house me-1"></i>Home
+                </a>
+                <a class="btn btn-sm btn-outline-light ms-2" href="auth/logout.php">
+                    <i class="bi bi-box-arrow-right me-1"></i>Logout
                 </a>
             </div>
         </header>
@@ -252,9 +278,14 @@
                                 <div class="invalid-feedback">Please select a day.</div>
                             </div>
                             <div class="mb-4">
-                                <label for="lectureTime" class="form-label">Time</label>
-                                <input type="time" class="form-control custom-input" id="lectureTime" required />
-                                <div class="invalid-feedback">Please select a time.</div>
+                                <label for="lectureStartTime" class="form-label">Start Time</label>
+                                <input type="time" class="form-control custom-input" id="lectureStartTime" required />
+                                <div class="invalid-feedback">Please select a start time.</div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="lectureEndTime" class="form-label">End Time</label>
+                                <input type="time" class="form-control custom-input" id="lectureEndTime" required />
+                                <div class="invalid-feedback">Please select an end time.</div>
                             </div>
                             <button type="submit" class="btn btn-grad-cyan w-100">
                                 <i class="bi bi-plus-lg me-2"></i>Add Lecture
@@ -311,12 +342,18 @@
                                 <label for="subjectGrade" class="form-label">Grade</label>
                                 <select class="form-select custom-input" id="subjectGrade" required>
                                     <option value="" disabled selected>Select grade</option>
+                                    <option value="4.0">A+ (4.0)</option>
                                     <option value="4.0">A (4.0)</option>
                                     <option value="3.7">A- (3.7)</option>
                                     <option value="3.3">B+ (3.3)</option>
                                     <option value="3.0">B (3.0)</option>
+                                    <option value="2.7">B- (2.7)</option>
+                                    <option value="2.3">C+ (2.3)</option>
                                     <option value="2.0">C (2.0)</option>
-                                    <option value="0">F (0.0)</option>
+                                    <option value="1.7">C- (1.7)</option>
+                                    <option value="1.3">D+ (1.3)</option>
+                                    <option value="1.0">D (1.0)</option>
+                                    <option value="0.0">E (0.0)</option>
                                 </select>
                                 <div class="invalid-feedback">Please select a grade.</div>
                             </div>
@@ -328,12 +365,18 @@
                         <div class="mt-4 pt-3 border-top border-secondary border-opacity-25">
                             <h6 class="text-muted small mb-3">Grade Scale Reference</h6>
                             <div class="grade-scale">
+                                <div class="grade-row"><span class="grade-tag">A+</span><span>4.0</span></div>
                                 <div class="grade-row"><span class="grade-tag">A</span><span>4.0</span></div>
                                 <div class="grade-row"><span class="grade-tag">A-</span><span>3.7</span></div>
                                 <div class="grade-row"><span class="grade-tag">B+</span><span>3.3</span></div>
                                 <div class="grade-row"><span class="grade-tag">B</span><span>3.0</span></div>
+                                <div class="grade-row"><span class="grade-tag">B-</span><span>2.7</span></div>
+                                <div class="grade-row"><span class="grade-tag">C+</span><span>2.3</span></div>
                                 <div class="grade-row"><span class="grade-tag">C</span><span>2.0</span></div>
-                                <div class="grade-row"><span class="grade-tag grade-f">F</span><span>0.0</span></div>
+                                <div class="grade-row"><span class="grade-tag">C-</span><span>1.7</span></div>
+                                <div class="grade-row"><span class="grade-tag">D+</span><span>1.3</span></div>
+                                <div class="grade-row"><span class="grade-tag">D</span><span>1.0</span></div>
+                                <div class="grade-row"><span class="grade-tag grade-f">E</span><span>0.0</span></div>
                             </div>
                         </div>
                     </div>
@@ -411,7 +454,7 @@
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="js/dashboard.js?v=20260321b"></script>
 </body>
 
 </html>

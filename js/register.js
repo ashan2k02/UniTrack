@@ -129,7 +129,7 @@ function showSuccessOverlay(panel, title, sub, redirect, delay = 1800) {
                 panel,
                 'Welcome back! 🎉',
                 'Redirecting to your dashboard…',
-                'dashboard.html'
+                'dashboard.php'
             );
         }, 1600);
     });
@@ -247,29 +247,26 @@ function showSuccessOverlay(panel, title, sub, redirect, delay = 1800) {
 
     
     form.addEventListener('submit', e => {
-        e.preventDefault();
         const ok =
-            validateFirstName() &
-            validateLastName() &
-            validateEmail() &
-            validateYear() &
-            validatePw() &
-            validateConfirm() &
+            validateFirstName() &&
+            validateLastName() &&
+            validateEmail() &&
+            validateYear() &&
+            validatePw() &&
+            validateConfirm() &&
             validateTerms();
 
-        if (!ok) return;
+        if (!ok) {
+            e.preventDefault();
+            return;
+        }
+
+        const usernameCombined = $('usernameCombined');
+        if (usernameCombined) {
+            usernameCombined.value = `${firstNameIn.value.trim()} ${lastNameIn.value.trim()}`.trim();
+        }
 
         setLoading(submitBtn, true);
-
-        setTimeout(() => {
-            setLoading(submitBtn, false);
-            showSuccessOverlay(
-                panel,
-                'Account created! 🚀',
-                'Welcome to UniTrack. Redirecting…',
-                'dashboard.html'
-            );
-        }, 1800);
     });
 
     

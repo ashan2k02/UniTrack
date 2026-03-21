@@ -1,3 +1,10 @@
+<?php
+require_once __DIR__ . '/includes/functions.php';
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -24,7 +31,7 @@
     <!-- =Navbar-->
     <nav class="navbar navbar-expand-lg fixed-top glass-nav" id="mainNavbar">
         <div class="container">
-            <a class="navbar-brand brand-logo" href="index.html" aria-label="UniTrack home">
+            <a class="navbar-brand brand-logo" href="index.php" aria-label="UniTrack home">
                 <span class="brand-icon"><img src="images/logo.png" alt="UniTrack logo"></span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
@@ -33,18 +40,33 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-                    <li class="nav-item"><a class="nav-link" href="index.html"><i
-                                class="bi bi-house-fill me-1"></i>Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html"><i
-                                class="bi bi-grid-fill me-1"></i>Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="about.html"><i
-                                class="bi bi-person-lines-fill me-1"></i>About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i
-                                class="bi bi-box-arrow-in-right me-1"></i>Login</a></li>
-                    <li class="nav-item ms-lg-2">
-                        <a class="btn btn-primary-grad" href="register.html">Get Started <i
-                                class="bi bi-arrow-right ms-1"></i></a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.php"><i class="bi bi-house-fill me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.php"><i class="bi bi-grid-fill me-1"></i>Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.php"><i class="bi bi-person-lines-fill me-1"></i>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.php"><i class="bi bi-envelope-fill me-1"></i>Contact</a></li>
+                    <?php if ($isLoggedIn = is_logged_in()): ?>
+                        <li class="nav-item dropdown ms-lg-2">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle me-2"></i><?= htmlspecialchars((string) ($username = $_SESSION['username'] ?? 'Student')) ?>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item" href="account.php">
+                                        <i class="bi bi-gear me-2"></i>Account Settings
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item text-danger" href="auth/logout.php">
+                                        <i class="bi bi-box-arrow-right me-2"></i>Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item"><a class="nav-link" href="login.php"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a></li>
+                        <li class="nav-item ms-lg-2"><a class="btn btn-primary-grad" href="register.php">Get Started <i class="bi bi-arrow-right ms-1"></i></a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -76,24 +98,7 @@
                         your browser.
                     </p>
 
-                    <div class="d-flex justify-content-center gap-4 flex-wrap">
-                        <div class="abt-stat" style="min-width:110px;">
-                            <div class="abt-stat-num">3</div>
-                            <div class="abt-stat-label">Modules</div>
-                        </div>
-                        <div class="abt-stat" style="min-width:110px;">
-                            <div class="abt-stat-num">5+</div>
-                            <div class="abt-stat-label">Pages</div>
-                        </div>
-                        <div class="abt-stat" style="min-width:110px;">
-                            <div class="abt-stat-num">0</div>
-                            <div class="abt-stat-label">Backend</div>
-                        </div>
-                        <div class="abt-stat" style="min-width:110px;">
-                            <div class="abt-stat-num">100%</div>
-                            <div class="abt-stat-label">Frontend</div>
-                        </div>
-                    </div>
+                    
 
                 </div>
             </div>
@@ -125,7 +130,7 @@
                         <em>no account, no server, no fuss.</em>
                     </p>
 
-                    <a href="dashboard.html" class="btn btn-primary-grad mt-4">
+                    <a href="dashboard.php" class="btn btn-primary-grad mt-4">
                         <i class="bi bi-rocket-takeoff me-2"></i>Open Dashboard
                     </a>
                 </div>
@@ -223,7 +228,7 @@
                             </li>
                         </ul>
 
-                        <a href="dashboard.html#tasks" class="howto-link howto-link--purple">
+                        <a href="dashboard.php#tasks" class="howto-link howto-link--purple">
                             Open Tasks <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -269,7 +274,7 @@
                             </li>
                         </ul>
 
-                        <a href="dashboard.html#timetable" class="howto-link howto-link--cyan">
+                        <a href="dashboard.php#timetable" class="howto-link howto-link--cyan">
                             Open Timetable <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -315,7 +320,7 @@
                             </li>
                         </ul>
 
-                        <a href="dashboard.html#gpa" class="howto-link howto-link--orange">
+                        <a href="dashboard.php#gpa" class="howto-link howto-link--orange">
                             Open GPA Calc <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -373,7 +378,7 @@
                             </div>
 
                             <div class="dev-links">
-                                <a href="https://ashaneranga.me" target="_blank" rel="noopener noreferrer" class="dev-btn dev-btn-web"><i class="bi bi-globe2"></i> Portfolio</a>
+                                <a href="https://uni-track-sigma.vercel.app/" target="_blank" rel="noopener noreferrer" class="dev-btn dev-btn-web"><i class="bi bi-globe2"></i> Portfolio</a>
                                 <button type="button" class="dev-btn dev-btn-gh"><i class="bi bi-github"></i> GitHub</button>
                                 <button type="button" class="dev-btn dev-btn-li"><i class="bi bi-linkedin"></i> LinkedIn</button>
                             </div>
@@ -400,7 +405,7 @@
                         <p style="font-size:.9rem; color:var(--clr-muted); line-height:1.8; margin:0 0 1rem 0;">
                             Explore more of my projects, design work, and frontend development journey.
                         </p>
-                        <a href="https://ashaneranga.me" target="_blank" rel="noopener noreferrer" class="btn btn-primary-grad">
+                        <a href="https://uni-track-sigma.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary-grad">
                             <i class="bi bi-box-arrow-up-right me-2"></i>Open Portfolio
                         </a>
                     </div>
@@ -424,10 +429,10 @@
                     tasks, lectures and subjects.
                 </p>
                 <div class="d-flex justify-content-center gap-3 flex-wrap">
-                    <a href="dashboard.html" class="btn btn-primary-grad btn-lg">
+                    <a href="dashboard.php" class="btn btn-primary-grad btn-lg">
                         <i class="bi bi-rocket-takeoff me-2"></i>Open Dashboard
                     </a>
-                    <a href="register.html" class="btn btn-outline-custom btn-lg">
+                    <a href="register.php" class="btn btn-outline-custom btn-lg">
                         <i class="bi bi-person-plus me-2"></i>Create Account
                     </a>
                 </div>
@@ -443,7 +448,7 @@
             <div class="row gy-4">
                 <!-- Brand -->
                 <div class="col-lg-4">
-                    <a class="footer-brand" href="index.html">
+                    <a class="footer-brand" href="index.php">
                         <i class="bi bi-mortarboard-fill me-2"></i>Uni<span class="brand-accent">Track</span>
                     </a>
                     <p class="footer-desc mt-3">
@@ -455,26 +460,27 @@
                 <div class="col-sm-6 col-lg-2 offset-lg-2">
                     <h6 class="footer-heading">Pages</h6>
                     <ul class="footer-links">
-                        <li><a href="index.html"><i class="bi bi-chevron-right me-1"></i>Home</a></li>
-                        <li><a href="dashboard.html"><i class="bi bi-chevron-right me-1"></i>Dashboard</a></li>
-                        <li><a href="about.html"><i class="bi bi-chevron-right me-1"></i>About</a></li>
+                        <li><a href="index.php"><i class="bi bi-chevron-right me-1"></i>Home</a></li>
+                        <li><a href="dashboard.php"><i class="bi bi-chevron-right me-1"></i>Dashboard</a></li>
+                        <li><a href="about.php"><i class="bi bi-chevron-right me-1"></i>About</a></li>
+                        <li><a href="contact.php"><i class="bi bi-chevron-right me-1"></i>Contact</a></li>
                     </ul>
                 </div>
                 <!-- Modules -->
                 <div class="col-sm-6 col-lg-2">
                     <h6 class="footer-heading">Modules</h6>
                     <ul class="footer-links">
-                        <li><a href="dashboard.html#tasks"><i class="bi bi-chevron-right me-1"></i>Task Manager</a></li>
-                        <li><a href="dashboard.html#timetable"><i class="bi bi-chevron-right me-1"></i>Timetable</a>
+                        <li><a href="dashboard.php#tasks"><i class="bi bi-chevron-right me-1"></i>Task Manager</a></li>
+                        <li><a href="dashboard.php#timetable"><i class="bi bi-chevron-right me-1"></i>Timetable</a>
                         </li>
-                        <li><a href="dashboard.html#gpa"><i class="bi bi-chevron-right me-1"></i>GPA Calc</a></li>
+                        <li><a href="dashboard.php#gpa"><i class="bi bi-chevron-right me-1"></i>GPA Calc</a></li>
                     </ul>
                 </div>
                 <!-- Contact -->
                 <div class="col-lg-2">
                     <h6 class="footer-heading">Developer</h6>
                     <ul class="footer-links">
-                        <li><a href="about.html"><i class="bi bi-person me-1"></i>About</a></li>
+                        <li><a href="about.php"><i class="bi bi-person me-1"></i>About</a></li>
                         <li><a href="#"><i class="bi bi-github me-1"></i>GitHub</a></li>
                     </ul>
                 </div>
@@ -483,7 +489,7 @@
             <hr class="footer-divider my-4" />
             <div class="d-flex flex-wrap justify-content-between align-items-center">
                 <p class="footer-copy mb-0">&copy; 2025 UniTrack. All rights reserved.</p>
-                <p class="footer-copy mb-0">Built by <span style="text-decoration: underline;"><a href="https://ashaneranga.me" target="_blank">Ashan Eranga</a></span></p>
+                <p class="footer-copy mb-0">Built by <span style="text-decoration: underline;"><a href="https://uni-track-sigma.vercel.app/" target="_blank">Ashan Eranga</a></span></p>
             </div>
         </div>
     </footer>

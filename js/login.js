@@ -114,22 +114,14 @@ function showSuccessOverlay(panel, title, sub, redirect, delay = 1800) {
 
     
     form.addEventListener('submit', e => {
-        e.preventDefault();
         const emailOk = validateLoginEmail();
         const pwOk = validateLoginPw();
-        if (!emailOk || !pwOk) return;
+        if (!emailOk || !pwOk) {
+            e.preventDefault();
+            return;
+        }
 
         setLoading(submitBtn, true);
-
-        setTimeout(() => {
-            setLoading(submitBtn, false);
-            showSuccessOverlay(
-                panel,
-                'Welcome back! 🎉',
-                'Redirecting to your dashboard…',
-                'dashboard.html'
-            );
-        }, 1600);
     });
 
     
@@ -265,7 +257,7 @@ function showSuccessOverlay(panel, title, sub, redirect, delay = 1800) {
                 panel,
                 'Account created! 🚀',
                 'Welcome to UniTrack. Redirecting…',
-                'dashboard.html'
+                'dashboard.php'
             );
         }, 1800);
     });
